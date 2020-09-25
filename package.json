@@ -1,5 +1,5 @@
 {
-  "name": "furima_29802",
+  "name": "furima-29802",
   "private": true,
   "dependencies": {
     "@rails/ujs": "^6.0.0-alpha",
