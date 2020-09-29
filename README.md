@@ -35,41 +35,44 @@ Things you may want to cover:
 | first_name_kana  | string      | null:false                           |
 | family_name_kana | string      | null:false                           |
 | birth_day        | date        | null:false                           |
-| username         | string      | null: false                          |
+| nickname         | string      | null: false                          |
 | email            | string      | null:false, unique: true, index:true |
 | password         | string      | null:false                           |
 
-### comments 中間テーブル
-
+### 
 - belongs_to :item
-- belongs_to :user
+- has_many :parchase
 
 ## items テーブル
 
-｜ Column        | Type       | options                        |
-｜ ------------- | ---------- | ------------------------------ |
-｜ cateory       | references | null: false, foreign_key: true |
-｜ name          | string     | null: false                    |
-| price          | integer    | null: false                    |
-| shipping_user  | references | null: false, foreign_key: true |
-| user_id        | integer    | null: false                    |
-| size           | references | null: false, foreign_key: true |
-| item_condition | references | null: false, foreign_key: true |
-| postage_payer  | references | null: false, foreign_key: true |
-| brand          | references | foreign_key: true              |
-| item_img       | references | null: false, foreign_key: true |
-| seller         | references | null: false, foreign_key: true |
-| buyer          | references | null: false, foreign_key: true |
+｜ Column          | Type       | options                        |
+｜ --------------- | ---------- | ------------------------------ |
+｜ cateory         | references | null: false, foreign_key: true |
+｜ name            | string     | null: false                    |
+| price            | integer    | null: false                    |
+| shipping_user    | references | null: false, foreign_key: true |
+| user_id          | integer    | null: false                    |
+| size             | references | null: false, foreign_key: true |
+| item_condition   | references | null: false, foreign_key: true |
+| postage_payer    | references | null: false, foreign_key: true |
+| brand            | references | foreign_key: true              |
+| deal_closed_date | timestamps |                                |
 
-### parchase
+### Assotiation
+
+- belongs_to :user
+- has_one :parchase
+
+### parchaseテーブル
 
 | Column | Type        | option                           |
 | user   | references  | null: false, foreign_key: true   |
 | item   | references  | null: false, foreign_key: true   |
 
-
 ### Assotiation
-- has_one
+- belongs_to :user
+- belongs_to :item
+- has_one :shipping_addres
 
 ### Shipping_addres
 
@@ -84,4 +87,4 @@ Things you may want to cover:
 | phone_number   | string     | null: false                     |
 
 ### Assotiation
-- belongs_to
+- belongs_to :parchase
