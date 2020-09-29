@@ -23,38 +23,36 @@ Things you may want to cover:
 
 * ...
 
-	
+
 # テーブル設計
 
 ## users テーブル
 
-| Column        | Type        | Options                              |
-| --------------| ------------| ------------------------------------ |
-| first_name    | string      | null: false                          |
-｜family_name   ｜string      ｜null:false                           ｜
-| birth_day     | date        | null:false                           |
-| birth_month   | date        | null:false                           |
-| birth_year    | date        | null:false                           |
-| username      | references  | null: false, foreign_key: true       |
-| Email         | string      | null:false, unique: true, index:true |
-
-### Association
-
-- has_many :room_users
-- has_many :users, through: room_users
-- has_many :messages
-
-## items テーブル
-
-｜ Column  | Type       | options                        |
-｜ ------- | ---------- | ------------------------------ |
-｜ cateory | references | null: false, foreign_key: true |
-｜ name    | string     | null: false                    |
+| Column           | Type        | Options                              |
+| -----------------| ------------| ------------------------------------ |
+| first_name       | string      | null: false                          |
+｜family_name      ｜string      ｜null:false                           ｜
+| first_name_kana  | string      | null:false                           |
+| family_name_kana | string      | null:false                           |
+| birth_day        | date        | null:false                           |
+| username         | references  | null: false, foreign_key: true       |
+| email            | string      | null:false, unique: true, index:true |
+| password         | string      | null:false                           |
 
 ### comments 中間テーブル
 
 - belongs_to :item
 - belongs_to :user
+
+## items テーブル
+
+｜ Column       | Type       | options                        |
+｜ -----------  | ---------- | ------------------------------ |
+｜ cateory      | references | null: false, foreign_key: true |
+｜ name         | string     | null: false                    |
+| price         | integer    | null: false                    |
+| shipping_user | references | null: false, foreign_key: true |
+| user_id       | integer    | null: false                    |
 
 ### parchase
 
@@ -68,10 +66,15 @@ Things you may want to cover:
 
 ### Shipping_addres
 
-| Column | Type       | option                          |
-| addres | string     | null: false                     |
-| city   | string     | null: false                     |
-| postage| string     | null: false                     |
+| Column         | Type       | option                          |
+| addres_1       | string     | null: false                     |
+| addres_2       | string     | null: false                     |
+| state/Province | string     | null: false                     |
+| city           | string     | null: false                     |
+| postage        | string     | null: false                     |
+| zip Code       | integer    | null: false                     |
+| country|       | string     | null: false                     |
+| phone_number   | integer    | null: false                     |
 
 ### Assotiation
 - belongs_to
