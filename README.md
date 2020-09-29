@@ -35,7 +35,7 @@ Things you may want to cover:
 | first_name_kana  | string      | null:false                           |
 | family_name_kana | string      | null:false                           |
 | birth_day        | date        | null:false                           |
-| username         | references  | null: false, foreign_key: true       |
+| username         | string      | null: false                          |
 | email            | string      | null:false, unique: true, index:true |
 | password         | string      | null:false                           |
 
@@ -46,13 +46,20 @@ Things you may want to cover:
 
 ## items テーブル
 
-｜ Column       | Type       | options                        |
-｜ -----------  | ---------- | ------------------------------ |
-｜ cateory      | references | null: false, foreign_key: true |
-｜ name         | string     | null: false                    |
-| price         | integer    | null: false                    |
-| shipping_user | references | null: false, foreign_key: true |
-| user_id       | integer    | null: false                    |
+｜ Column        | Type       | options                        |
+｜ ------------- | ---------- | ------------------------------ |
+｜ cateory       | references | null: false, foreign_key: true |
+｜ name          | string     | null: false                    |
+| price          | integer    | null: false                    |
+| shipping_user  | references | null: false, foreign_key: true |
+| user_id        | integer    | null: false                    |
+| size           | references | null: false, foreign_key: true |
+| item_condition | references | null: false, foreign_key: true |
+| postage_payer  | references | null: false, foreign_key: true |
+| brand          | references | foreign_key: true              |
+| item_img       | references | null: false, foreign_key: true |
+| seller         | references | null: false, foreign_key: true |
+| buyer          | references | null: false, foreign_key: true |
 
 ### parchase
 
@@ -74,7 +81,7 @@ Things you may want to cover:
 | postage        | string     | null: false                     |
 | zip Code       | integer    | null: false                     |
 | country|       | string     | null: false                     |
-| phone_number   | integer    | null: false                     |
+| phone_number   | string     | null: false                     |
 
 ### Assotiation
 - belongs_to
