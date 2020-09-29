@@ -28,7 +28,6 @@ Things you may want to cover:
 
 ## users テーブル
 
-
 | Column        | Type        | Options                              |
 | --------------| ------------| ------------------------------------ |
 | first_name    | string      | null: false                          |
@@ -60,8 +59,8 @@ Things you may want to cover:
 ### parchase
 
 | Column | Type        | option                         |
-| use_id |             |                                |
-| item_id|             |                                |
+| user | references  | null: false, foreign_key: true   |
+| item | references  | null: false, foreign_key: true   |
 
 
 ### Assotiation
