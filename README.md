@@ -28,6 +28,7 @@ Things you may want to cover:
 
 ## users テーブル
 
+
 | Column        | Type        | Options                              |
 | --------------| ------------| ------------------------------------ |
 | first_name    | string      | null: false                          |
