@@ -36,7 +36,6 @@ Things you may want to cover:
 | birth_day     | date        | null:false                           |
 | birth_month   | date        | null:false                           |
 | birth_year    | date        | null:false                           |
-| introduction  | text        |                                      |
 | username      | references  | null: false, foreign_key: true       |
 | Email         | string      | null:false, unique: true, index:true |
 
@@ -52,10 +51,6 @@ Things you may want to cover:
 ｜ ------- | ---------- | ------------------------------ |
 ｜ cateory | references | null: false, foreign_key: true |
 ｜ name    | string     | null: false                    |
-
-### Association
-
-- has_many :comments
 
 ### comments 中間テーブル
 
