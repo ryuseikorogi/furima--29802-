@@ -60,8 +60,8 @@ Things you may want to cover:
 ### parchase
 
 | Column | Type        | option                         |
-| use_id |             |                                |
-| item_id|             |                                |
+| use_id | references  |                                |
+| item_id| references  |                                |
 
 
 ### Assotiation
