@@ -58,9 +58,9 @@ Things you may want to cover:
 
 ### parchase
 
-| Column | Type        | option                         |
-| user | references  | null: false, foreign_key: true   |
-| item | references  | null: false, foreign_key: true   |
+| Column | Type        | option                           |
+| user   | references  | null: false, foreign_key: true   |
+| item   | references  | null: false, foreign_key: true   |
 
 
 ### Assotiation
@@ -69,9 +69,9 @@ Things you may want to cover:
 ### Shipping_addres
 
 | Column | Type       | option                          |
-| addres |            |                                 |
-| city   |            |                                 |
-| postage|                   |                                 |
+| addres | string     | null: false                     |
+| city   | string     | null: false                     |
+| postage| string     | null: false                     |
 
 ### Assotiation
 - belongs_to
