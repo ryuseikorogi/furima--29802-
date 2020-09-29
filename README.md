@@ -47,21 +47,23 @@ Things you may want to cover:
 
 ｜ Column          | Type       | options                        |
 ｜ --------------- | ---------- | ------------------------------ |
-｜ cateory         | references | null: false, foreign_key: true |
+｜ cateory         | integer    | null: false                    |
 ｜ name            | string     | null: false                    |
 | price            | integer    | null: false                    |
 | shipping_user    | references | null: false, foreign_key: true |
 | user_id          | integer    | null: false                    |
 | size             | references | null: false, foreign_key: true |
-| item_condition   | references | null: false, foreign_key: true |
-| postage_payer    | references | null: false, foreign_key: true |
+| item_condition   | integer    | null: false                    |
+| postage_payer    | integer    | null: false                    |
 | brand            | references | foreign_key: true              |
-| deal_closed_date | timestamps |                                |
+| prefecture       | integer    | null: false                    |
+| days_arrive_item | integer    | null: false                    |
 
 ### Assotiation
 
 - belongs_to :user
 - has_one :parchase
+- has_many :items
 
 ### parchaseテーブル
 
