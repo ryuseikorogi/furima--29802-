@@ -34,14 +34,14 @@ Things you may want to cover:
 ｜family_name      ｜string      ｜null:false                           ｜
 | first_name_kana  | string      | null:false                           |
 | family_name_kana | string      | null:false                           |
-| birth_day_id     | date        | null:false                           |
+| birth_day        | date        | null:false                           |
 | nickname         | string      | null: false                          |
 | email            | string      | null:false, unique: true, index:true |
 | password         | string      | null:false                           |
 
 ### Assotiation
-- belongs_many :items
-- has_many :parchases
+- has_many :items
+- has_many :purchases
 
 ## items テーブル
 
@@ -50,22 +50,18 @@ Things you may want to cover:
 ｜ cateory_id       | integer    | null: false                    |
 ｜ name             | string     | null: false                    |
 | price             | integer    | null: false                    |
-| shipping_user     | references | null: false, foreign_key: true |
-| user_id           | integer    | null: false                    |
-| size_id           | references | null: false, foreign_key: true |
+| user              | references | null: false, foreign_key: true |
 | item_condition_id | integer    | null: false                    |
 | postage_payer     | integer    | null: false                    |
-| brand_id          | references | foreign_key: true              |
 | prefecture_id     | integer    | null: false                    |
 | days_arrive_item  | integer    | null: false                    |
 
 ### Assotiation
 
 - belongs_to :user
-- has_one :parchase
-- has_many :items
+- has_one :purchase
 
-### parchaseテーブル
+### purchaseテーブル
 
 | Column | Type        | option                           |
 | user   | references  | null: false, foreign_key: true   |
@@ -76,7 +72,7 @@ Things you may want to cover:
 - belongs_to :item
 - has_one :shipping_addres
 
-### Shipping_addres
+### Shipping_addresses
 
 | Column         | Type       | option                          |
 | addres_1       | string     | null: false                     |
@@ -89,4 +85,4 @@ Things you may want to cover:
 | phone_number   | string     | null: false                     |
 
 ### Assotiation
-- belongs_to :parchase
+- belongs_to :purchases
