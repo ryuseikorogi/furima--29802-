@@ -81,6 +81,7 @@ Things you may want to cover:
 | zip_Code       | string    | null: false                     |
 | country_id     | integer     | null: false                     |
 | phone_number   | string     | null: false                     |
+| address        | string     | null: false                     |
 
 ### Assotiation
 - belongs_to :purchases
