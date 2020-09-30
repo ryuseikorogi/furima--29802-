@@ -75,13 +75,11 @@ Things you may want to cover:
 ### Shipping_addresses
 
 | Column         | Type       | option                          |
-| addres_1       | string     | null: false                     |
-| addres_2       | string     |                                 |
-| state/Province | string     | null: false                     |
+| prefecture     | string     | null: false                     |
+| building       | string     |                                 |
 | city           | string     | null: false                     |
-| postage        | string     | null: false                     |
-| zip_Code       | integer    | null: false                     |
-| country_id     | string     | null: false                     |
+| zip_Code       | string    | null: false                     |
+| country_id     | integer     | null: false                     |
 | phone_number   | string     | null: false                     |
 
 ### Assotiation
