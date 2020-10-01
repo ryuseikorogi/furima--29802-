@@ -55,6 +55,7 @@ Things you may want to cover:
 | postage_payer     | integer    | null: false                    |
 | prefecture_id     | integer    | null: false                    |
 | days_arrive_item  | integer    | null: false                    |
+| item_discription  | text       | null: false                    |
 
 ### Assotiation
 
@@ -81,6 +82,7 @@ Things you may want to cover:
 | zip_Code       | string    | null: false                      |
 | phone_number   | string     | null: false                     |
 | address        | string     | null: false, foreign_key:true   |
+| purchase       | reference  | null: false, foreign_key:true   |
 
 ### Assotiation
 - belongs_to :purchase
