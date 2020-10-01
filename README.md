@@ -75,13 +75,12 @@ Things you may want to cover:
 ### Shipping_addresses
 
 | Column         | Type       | option                          |
-| prefecture     | string     | null: false                     |
+| prefecture_id  | string     | null: false                     |
 | building       | string     |                                 |
 | city           | string     | null: false                     |
-| zip_Code       | string    | null: false                     |
-| country_id     | integer     | null: false                     |
+| zip_Code       | string    | null: false                      |
 | phone_number   | string     | null: false                     |
-| address        | string     | null: false                     |
+| address        | string     | null: false, foreign_key:true   |
 
 ### Assotiation
-- belongs_to :purchases
+- belongs_to :purchase
