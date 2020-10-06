@@ -3,29 +3,16 @@ RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
-
   describe 'ユーザー新規登録' do
     it "nicknameが空だと登録できない" do
       @user.nickname = ""
       @user.valid?
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
-
-    #   user = FactoryBot.build(:user)  # Userのインスタンス生成
-    #   user.nickname = ""  # nicknameの値を空にする
-    #   user = User.new(nickname: "", email: "kkk@gmail.com", password: "00000000", password_confirmation: "00000000")
-    #  user.valid?
-    #  expect(user.errors.full_messages).to include("Nickname can't be blank")
     end
     it "emailが空では登録できない" do
       @user.email = ""
       @user.valid?
       expect(@user.errors.full_messages).to include("Email can't be blank")
-
-      # user = FactoryBot.build(:user)  # Userのインスタンス生成
-      # user.email = ""  # emailの値を空にする
-      # user = build(:user, email: nil)
-      # user.valid?
-      # expect(user.errors[:email]).to include("を入力してください")
     end 
     it "生年月日が全て入力しないと登録できない" do
       @user.birth_day = ""
@@ -33,7 +20,6 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Birth day can't be blank")
     end
     it "passwordが空だと登録できない" do
-      user = User.new(nickname: "", email: "kkk@gmail.com", password: "00000000", password_confirmation: "00000000")
       @user.password = ""
       @user.valid?
       expect(@user.errors.full_messages).to include("Password can't be blank")
@@ -52,5 +38,16 @@ RSpec.describe User, type: :model do
       another_user.valid?
       expect(another_user.errors[:email]).to include("has already been taken")
     end
-end
+    it "名前に英字が含まれていると登録できない" do
+      @user.first_name = "aaaa"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name は全角で入力してください。")
+    end
+    
+    it "emailに@が含まれていなかった場合登録できない  " do
+        @user.email = 'user.example.com'
+        expect(@user).to_not be_valid
+        expect(@user.errors[:email]).to include("is invalid")
+    end
+  end
 end
