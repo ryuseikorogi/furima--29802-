@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  #get 'posts', to: 'posts#index'
-  root to: "items#index"
-end
+  # , controllers: {
+  #   registrations: 'users/registrations',
+  # }
 
+  devise_scope :user do
+    get 'sending_destinations', to: 'users/registrations#newSendingDestination'
+    post 'sending_destinations', to: 'users/registrations#createSendingDestination'
+  end
+
+  root to: 'items#index'
+  resources :items
+end
