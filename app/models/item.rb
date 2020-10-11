@@ -21,18 +21,21 @@ class Item < ApplicationRecord
     validates :price
   end
 
-    validates :genre_id, numericality: { other_than: 0 }
+  with_option numericality: { other_than: 0 } do
+    
+    validates :genre_id
 
-    validates :condition_id, numericality: { other_than: 0 }
+    validates :condition_id
 
-    validates :shipping_burden_id, numericality: { other_than: 0 }
+    validates :shipping_burden_id
 
-    validates :shipping_prefecture_id, numericality: { other_than: 0 }
+    validates :shipping_prefecture_id
 
-    validates :days_to_ship_id, numericality: { other_than: 0 }
-   
-    validates_inclusion_of  :price, in: 300..10000000, message: "Price Out of setting range"
+    validates :days_to_ship_id
+  end
 
-    validates :price, numericality: {with: /\A[0-9]+\z/}
+    validates_inclusion_of  :pricein: 300..10000000message: "Price Out of setting range"
+
+    validates :pricenumericality: {with: /\A[0-9]+\z/}
 
 end
