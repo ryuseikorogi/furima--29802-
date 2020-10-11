@@ -11,13 +11,14 @@ class Item < ApplicationRecord
   VALID_PRICEL_REGEX =  /\A[0-9]+\z/
 
   with_options presence: true  do
-    validates  :item
+    validates  :item_name
     validates  :text
     validates  :condition
     validates  :shipping_burden
     validates  :shipping_prefecture
     validates  :days_to_ship
     validates :image
+    validates :price
   end
 
     validates :genre_id, numericality: { other_than: 0 }
@@ -32,6 +33,6 @@ class Item < ApplicationRecord
    
     validates_inclusion_of  :price, in: 300..10000000, message: "Price Out of setting range"
 
-    validates :price, numericality: {with: /\A[0-9]+\z/} 
+    validates :price, numericality: {with: /\A[0-9]+\z/}
 
 end
