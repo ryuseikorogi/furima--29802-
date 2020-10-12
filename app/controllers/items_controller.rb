@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update]
-  # def index 
-  #   @items = Item.order("created_at DESC")
-  # end
+  before_action :move_to_index, except: [:index, :show]
+  def index 
+    @items = Item.order("created_at DESC")
+  end
 
   # def edit
   # end
@@ -33,7 +34,7 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(
-      :item,
+      :item_name,
       :image,
       :days_to_ship_id,
       :text,
