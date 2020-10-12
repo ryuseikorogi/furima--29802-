@@ -21,8 +21,8 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  with_option numericality: { other_than: 0 } do
-    
+  with_options numericality: { other_than: 0 } do
+
     validates :genre_id
 
     validates :condition_id
@@ -34,8 +34,8 @@ class Item < ApplicationRecord
     validates :days_to_ship_id
   end
 
-    validates_inclusion_of  :pricein: 300..10000000message: "Price Out of setting range"
+    validates_inclusion_of  :price,in: 300..10000000,message: "Price Out of setting range"
 
-    validates :pricenumericality: {with: /\A[0-9]+\z/}
+    validates :price,numericality: {with: /\A[0-9]+\z/}
 
 end

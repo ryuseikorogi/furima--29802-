@@ -1,27 +1,22 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update]
-  def index 
-    @items = Item.order("created_at DESC")
-  end
-
-  def edit
-  end
-
-  def update
-    @item.update(item_params)
-    redirect_to root_path
-  end
-
-  # def item_params
-  #   params.require(:item).permit(:content, :image)
+  # def index 
+  #   @items = Item.order("created_at DESC")
   # end
-  
+
+  # def edit
+  # end
+
+  # def update
+  #   @item.update(item_params)
+  #   redirect_to root_path
+  # end
+
   def new
     @item = Item.new
   end
 
   def create
-    # binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
