@@ -5,13 +5,16 @@ class ItemsController < ApplicationController
     @items = Item.order("created_at DESC")
   end
 
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  #   @item.update(item_params)
-  #   redirect_to root_path
-  # end
+  def update
+    if @item.update(item_params)
+    redirect_to item_path
+  else
+    render :edit
+  end
+end
 
   def new
     @item = Item.new
