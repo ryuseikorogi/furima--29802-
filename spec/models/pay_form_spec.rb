@@ -17,6 +17,7 @@ RSpec.describe PayForm, type: :model do
       it 'city_id,address,zip_codeとtoken,shipping_prefecture,phone_numberが存在すれば登録できる' do
         expect(@pay_form).to be_valid
       end
+    end
 
       it 'buildingがなくても登録できる' do
         @pay_form.building = ''
@@ -81,6 +82,5 @@ RSpec.describe PayForm, type: :model do
           expect(@pay_form.errors.full_messages).to include('Zip code is invallid')
         end
       end
-    end
   end
 end
