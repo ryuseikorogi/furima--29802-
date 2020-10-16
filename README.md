@@ -79,7 +79,7 @@ Things you may want to cover:
 | prefecture_id  | string     | null: false                     |
 | building       | string     |                                 |
 | city           | string     | null: false                     |
-| zip_Code       | string    | null: false                      |
+| zip_code       | string    | null: false                      |
 | phone_number   | string     | null: false                     |
 | address        | string     | null: false, foreign_key:true   |
 | purchase       | reference  | null: false, foreign_key:true   |

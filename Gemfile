@@ -73,4 +73,6 @@ group :development, :test do
   gem 'jp_prefecture'
   gem 'active_hash'
   gem 'mini_magick'
+  gem 'payjp'
+  gem 'pry-rails'
 end
