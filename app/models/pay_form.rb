@@ -11,7 +11,7 @@ class PayForm
   end
   validates :shipping_prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
 
-  validates :zip_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invallid" }
+  validates :zip_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invallid' }
   # ここにバリデーションの処理を書く
 
   def save

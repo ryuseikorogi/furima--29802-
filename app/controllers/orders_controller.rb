@@ -1,14 +1,18 @@
 class OrdersController < ApplicationController
   before_action :pay_form, only:[:index, :create]
-  
+  before_action :move_to_root, only: [:index, :create]
+  before_action :authenticate_user!, only: [:index]
+
   def index
+    if current_user == @item.user
+      redirect_to root_path
+    end
     @order = PayForm.new
   end
 
   def create
     @order = PayForm.new(order_params)
   
-
    if @order.valid?
       pay_item
       @order.save
@@ -17,7 +21,8 @@ class OrdersController < ApplicationController
       render 'index'
     end
   end
-end
+
+
 
    private
    def pay_form
@@ -36,4 +41,10 @@ end
     def order_params
       params.require(:pay_form).permit(:shipping_prefecture_id, :address, :zip_code, :city, :building, :phone_number).merge(token: params[:token], user_id: current_user.id ,item_id: params[:item_id])
     end
-  end
+
+    def move_to_root
+      unless user_signed_in?
+        redirect_to root_path
+      end
+    end
+end

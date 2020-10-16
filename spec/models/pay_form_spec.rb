@@ -75,7 +75,7 @@ RSpec.describe PayForm, type: :model do
     it 'zip_codeにハイフンが含まれていないと登録できない' do
       @pay_form.zip_code = '0000000'
       @pay_form.valid?
-      expect(@pay_form.errors.full_messages).to include("Zip code is invallid")
+      expect(@pay_form.errors.full_messages).to include('Zip code is invallid')
     end
   end
 end
