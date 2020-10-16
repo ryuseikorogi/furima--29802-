@@ -17,9 +17,6 @@ RSpec.describe PayForm, type: :model do
       it 'city_id,address,zip_codeとtoken,shipping_prefecture,phone_numberが存在すれば登録できる' do
         expect(@pay_form).to be_valid
       end
-      it 'phone_numberが11文字以下で登録できる' do
-      end
-    end
 
     it 'city_idが空だと登録できない' do
       @pay_form.city = ''
@@ -60,7 +57,7 @@ RSpec.describe PayForm, type: :model do
       expect(@pay_form.errors.full_messages).to include("Token can't be blank")
     end
 
-    it 'phone_numberが11文字以下であれば登録できないこと' do
+    it 'phone_numberが11文字以上であれば登録できないこと' do
       @pay_form.phone_number = '123456789012'
       @pay_form.valid?
 
