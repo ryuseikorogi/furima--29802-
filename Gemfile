@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+group :development do
+  gem 'rubocop', require: false
+end
 
 ruby '2.6.5'
 
@@ -73,4 +76,7 @@ group :development, :test do
   gem 'jp_prefecture'
   gem 'active_hash'
   gem 'mini_magick'
+  gem 'payjp'
+  gem 'pry-rails'
+
 end
