@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :Pay_form, only:[:index, :create]
+  before_action :pay_form, only:[:index, :create]
   
   def index
     @order = PayForm.new
