@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
 
   def index
-    return ridirect_to root_path if @item.purchase
+    return redirect_to root_path if @item.purchase
 
     redirect_to root_path if current_user == @item.user
     @order = PayForm.new
