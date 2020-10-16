@@ -18,11 +18,18 @@ RSpec.describe PayForm, type: :model do
         expect(@pay_form).to be_valid
       end
 
-    it 'city_idが空だと登録できない' do
-      @pay_form.city = ''
-      @pay_form.valid?
+      it 'buildingがなくても登録できる'do
+        @pay_form.building = ''
+        expect(@pay_form).to be_valid
+      end
+
+      context '商品購入がうまくいかないとき' do
+        it 'city_idが空だと登録できない' do
+            @pay_form.city = ''
+            @pay_form.valid?
       expect(@pay_form.errors.full_messages).to include("City can't be blank")
     end
+  end
 
     it 'addressが空だと登録できない' do
       @pay_form.address = ''
@@ -75,4 +82,5 @@ RSpec.describe PayForm, type: :model do
       expect(@pay_form.errors.full_messages).to include('Zip code is invallid')
     end
   end
+end
 end
