@@ -13,10 +13,9 @@ const pay = () => {
       exp_month: formData.get("pay_form[exp-month]"),
       exp_year: `20${formData.get("pay_form[exp-year]")}`,
     };
-     console.log(card)
 
     Payjp.createToken(card, (status, response) => {
-      console.log(status)
+      
       if (status === 200) {
         const token = response.id;
         const renderDom = document.getElementById("charge-form");

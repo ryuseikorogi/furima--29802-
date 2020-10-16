@@ -14,16 +14,26 @@ RSpec.describe PayForm, type: :model do
       sleep(1)
     end
 
+      context '商品購入がうまくいくとき' do
+        it "city_id,address,zip_codeとtoken,shipping_prefecture,phone_numberが存在すれば登録できる" do
+          expect(@pay_form).to be_valid
+        end
+        it "phone_numberが11文字以下で登録できる" do
+        end
+      end
+
     it "city_idが空だと登録できない" do
       @pay_form.city= ""
       @pay_form.valid?
       expect(@pay_form.errors.full_messages).to include("City can't be blank")
     end
+
     it "addressが空だと登録できない" do
       @pay_form.address= ""
       @pay_form.valid?
       expect(@pay_form.errors.full_messages).to include("Address can't be blank")
     end
+
     it "zip_codeが空だと登録できない" do
       @pay_form.zip_code= ""
       @pay_form.valid?
@@ -37,24 +47,25 @@ RSpec.describe PayForm, type: :model do
       expect(@pay_form.errors.full_messages).to include("Shipping prefecture can't be blank")
     end
 
-      it "phone_numberが空だと登録できない" do
-        @pay_form.phone_number = ""
-        @pay_form.valid?
+    it "phone_numberが空だと登録できない" do
+      @pay_form.phone_number = ""
+      @pay_form.valid?
 
-        expect(@pay_form.errors.full_messages).to include("Phone number can't be blank")
-      end
-        it "tokenが空だと登録できない" do
-          @pay_form.token = ""
-          @pay_form.valid?
-  
-          expect(@pay_form.errors.full_messages).to include("Token can't be blank")
-        end
+      expect(@pay_form.errors.full_messages).to include("Phone number can't be blank")
+    end
 
-          it "phone_numberが11文字以下であれば登録できないこと" do
-            @pay_form.phone_number = "123456789012"
-            @pay_form.valid?
-            
-            expect(@pay_form.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
-          end
+    it "tokenが空だと登録できない" do
+      @pay_form.token = ""
+      @pay_form.valid?
+
+      expect(@pay_form.errors.full_messages).to include("Token can't be blank")
+    end
+
+    it "phone_numberが11文字以下であれば登録できないこと" do
+      @pay_form.phone_number = "123456789012"
+      @pay_form.valid?
+      
+      expect(@pay_form.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+    end
     end
   end

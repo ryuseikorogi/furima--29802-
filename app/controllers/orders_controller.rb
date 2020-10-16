@@ -1,25 +1,29 @@
 class OrdersController < ApplicationController
-
+  before_action :Pay_form, only:[:index, :create]
+  
   def index
     @order = PayForm.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
     @order = PayForm.new(order_params)
-    @item = Item.find(params[:item_id])
+  
 
    if @order.valid?
       pay_item
       @order.save
-      return redirect_to root_path#購入した商品をまた買ええないようにするやつ
+      return redirect_to root_path
     else
       render 'index'
     end
   end
+end
 
    private
-   
+   def Pay_form
+   @item = Item.find(params[:item_id])
+   end
+
     def pay_item
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
