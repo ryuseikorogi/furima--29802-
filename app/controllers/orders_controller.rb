@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
 end
 
    private
-   def Pay_form
+   def pay_form
    @item = Item.find(params[:item_id])
    end
 
