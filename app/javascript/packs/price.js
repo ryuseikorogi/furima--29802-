@@ -12,6 +12,7 @@ window.addEventListener('load', function(){
     const inputAddTaxPrice = document.getElementById("add-tax-price")
     const inputProfit = document.getElementById("profit")
     inputAddTaxPrice.innerHTML = tax
+    inputProfit.innerHTML = profit
   })
 
 });
